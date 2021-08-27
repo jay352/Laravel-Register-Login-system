@@ -1,6 +1,9 @@
 <?php
 
 namespace App\Exceptions;
+use Request;
+use Illuminate\Auth\AuthenticationException;
+use Response;
 
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Throwable;
@@ -52,4 +55,13 @@ class Handler extends ExceptionHandler
     {
         return parent::render($request, $exception);
     }
-}
+    /**
+*@param \Illuminate\Http\Request $request
+*@param \Illuminate\Auth\AuthenticationException $exception
+*@return \Illuminate\Http\Response
+* */
+    protected function unauthenticated($request, AuthenticationException $exception)
+    {
+        return $request->expectsJson()
+        ? response()->json(['message'=>'Invalid Api key'],401)
+        : redirect()->guest(route('authentication.index')); } }
