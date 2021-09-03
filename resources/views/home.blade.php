@@ -13,7 +13,6 @@
 <script type="text/javascript">
    $(document).ready(function(){
         $("#status").on(function(){
-        
             var status = $(this).val();
             //alert(id);
             $.ajax({
@@ -57,22 +56,21 @@ $.ajaxSetup({
 {
          $.ajax({
             type:"POST",
-            url:"http://127.0.0.1:8000/api/create-task",
-            data:formData,
+            url:"create-task",
+            data:task:task,
             dataType:"json",
             cache:false,        
 
                  success:function(response){
-                   
-                    
-              if(response.status=="success"){
-                  alert("success"); 
-              }else{
+                    if(response.status=="success")
+                    {
+                        alert("success"); 
+                    }
+                    else
+                    {
                   alert("Error");
               }
            
-           error:function(error){
-              console.log(error);
            }
         });
 
