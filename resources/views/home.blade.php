@@ -106,7 +106,7 @@ $.ajaxSetup({
 
 
 <!--button for show hide add task division-->
-    <button onclick="show()">Add tasks</button>show/hide on click
+    <button class="btn btn-dark" onclick="show()">Add tasks</button>show/hide on click
 
 
 
