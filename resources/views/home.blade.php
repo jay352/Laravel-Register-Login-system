@@ -77,6 +77,7 @@ $.ajaxSetup({
          else{
             alert('please fill task field');
          }
+     }
      });
 
             
